@@ -5644,7 +5644,7 @@ react-hammerjs@~0.5.0:
   dependencies:
     hammerjs "^2.0.8"
 
-react-hot-loader@next:
+react-hot-loader@^3.0.0-beta.6:
   version "3.0.0-beta.6"
   resolved "http://172.24.133.106:7001/react-hot-loader/download/react-hot-loader-3.0.0-beta.6.tgz#463fac0bfc8b63a8385258af20c91636abce75f4"
   dependencies:
@@ -6168,7 +6168,7 @@ sinon-chai@^2.8.0:
   version "2.8.0"
   resolved "http://172.24.133.106:7001/sinon-chai/download/sinon-chai-2.8.0.tgz#432a9bbfd51a6fc00798f4d2526a829c060687ac"
 
-sinon@2.0.0-pre.4:
+sinon@^2.0.0-pre.4:
   version "2.0.0-pre.4"
   resolved "http://172.24.133.106:7001/sinon/download/sinon-2.0.0-pre.4.tgz#f29fbcca8d2fa73b633a3b0c0e4e3c78f2360c2c"
   dependencies:

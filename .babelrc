@@ -1,11 +1,39 @@
 {
-  "presets": [
-    "latest",
-    "stage-0",
-    "react"
-  ],
-  "plugins": [
-    "transform-runtime",
-    "add-module-exports"
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        "latest",
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-runtime",
+        "add-module-exports",
+        "react-hot-loader/babel"
+      ]
+    },
+    "test": {
+      "presets": [
+        "latest",
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-runtime",
+        "add-module-exports",
+        "istanbul"
+      ]
+    },
+    "production": {
+      "presets": [
+        "latest",
+        "stage-0",
+        "react"
+      ],
+      "plugins": [
+        "transform-runtime",
+        "add-module-exports"
+      ]
+    }
+  }
 }

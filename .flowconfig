@@ -1,0 +1,8 @@
+[ignore]
+.*/node_modules/.*
+.*/dist/.*
+[include]
+.*/src/.*
+[libs]
+flow
+[options]

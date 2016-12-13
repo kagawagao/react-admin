@@ -22,6 +22,7 @@ There are a lot of things to do
 - Linters
   - `ESLint`
   - `stylelint`
+  - `Flowtype`
 - Package Manage
   - `Yarn`
 - Test

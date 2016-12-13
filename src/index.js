@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
+/* @flow */
+import React from 'react'
 import ReactDOM from 'react-dom'
-
-class App extends Component {
-  render () {
-    return (
-      <h1>React Admin</h1>
-    )
-  }
-}
+import App from './app/index'
 
 ReactDOM.render(
   <App />,

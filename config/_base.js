@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import _debug from 'debug'
 
-const debug = _debug('config:base')
+const debug = _debug('app:config:base')
 
 const config = {
   env: process.env.NODE_ENV || 'development',
@@ -15,7 +15,7 @@ const config = {
   path_base: resolve(__dirname, '../'),
   dir_src: 'src',
   dir_dist: 'dist',
-  dir_test: 'test',
+  dir_test: 'tests',
 
   /**************************************
   ********* Server Configuration *********

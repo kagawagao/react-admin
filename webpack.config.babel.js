@@ -7,7 +7,7 @@ import config, { paths, globals } from './config'
 
 const { __DEV__, __TEST__, __PROD__ } = globals
 
-const debug = _debug('webpack')
+const debug = _debug('app:webpack')
 
 debug('Create configuration.')
 

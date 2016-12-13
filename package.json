@@ -7,7 +7,28 @@
   "author": "kagawagao <kingsongao1221@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --progress"
+    "dev": "better-npm-run dev",
+    "test": "better-npm-run test",
+    "test:dev": "npm run test -- --watch",
+    "lint": "eslint --max-warnings 10 .",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:flow": "flow check"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "nodemon --exec webpack-dev-server --progress",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "test": {
+      "command": "babel-node ./node_modules/karma/bin/karma start karma.config",
+      "env": {
+        "NODE_ENV": "test",
+        "DEBUG": "app:*"
+      }
+    }
   },
   "dependencies": {
     "antd": "^2.5.2",
@@ -19,31 +40,57 @@
     "redux-promise": "^0.5.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.9",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
+    "better-npm-run": "^0.0.13",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-enzyme": "^0.6.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "debug": "^2.3.3",
+    "enzyme": "^2.6.0",
     "eslint": "^3.12.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-config-standard-react": "^4.2.0",
     "eslint-friendly-formatter": "^2.0.6",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.29.1",
+    "eslint-plugin-flowtype-errors": "^2.0.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
+    "flow-bin": "^0.37.0",
     "html-webpack-plugin": "^2.24.1",
     "json-loader": "^0.5.4",
+    "karma": "^1.3.0",
+    "karma-coverage": "^1.1.1",
+    "karma-es6-shim": "^1.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.1",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.8.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "phantomjs-polyfill": "^0.0.2",
+    "phantomjs-prebuilt": "^2.1.14",
     "postcss-loader": "^1.2.1",
+    "react-addons-test-utils": "^15.4.1",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sinon": "^2.0.0-pre.4",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.6.0",
     "stylelint-config-standard": "^15.0.0",

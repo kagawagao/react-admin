@@ -8,7 +8,7 @@
 
 ## Todos
 
-There are a lots of things to do
+There are a lot of things to do
 
 ## Features
 

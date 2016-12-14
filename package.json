@@ -12,11 +12,12 @@
     "test:dev": "npm run test -- --watch",
     "lint": "eslint --max-warnings 10 .",
     "lint:fix": "npm run lint -- --fix",
-    "lint:flow": "flow check"
+    "lint:flow": "flow check",
+    "lint:css": "stylelint ."
   },
   "betterScripts": {
     "dev": {
-      "command": "nodemon --exec webpack-dev-server --progress",
+      "command": "nodemon --exec webpack-dev-server",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
@@ -70,6 +71,7 @@
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "favicons-webpack-plugin": "^0.0.7",
     "file-loader": "^0.9.0",
     "flow-bin": "^0.37.0",
     "html-webpack-plugin": "^2.24.1",
@@ -82,11 +84,18 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "phantomjs-polyfill": "^0.0.2",
     "phantomjs-prebuilt": "^2.1.14",
+    "postcss-browser-reporter": "^0.5.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.1",
+    "postcss-reporter": "^3.0.0",
+    "postcss-url": "^5.1.2",
     "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "sinon": "^2.0.0-pre.4",

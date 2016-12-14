@@ -2,6 +2,7 @@ import webpack from 'webpack'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
 import _debug from 'debug'
 import config, { paths, globals } from './config'
 
@@ -66,8 +67,17 @@ const webpackConfig = {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?importLoaders=1',
+          'css-loader?importLoaders=1&sourceMap',
           'postcss-loader'
+        ]
+      },
+      {
+        test: /\.less$/,
+        loaders: [
+          'style-loader',
+          'css-loader?importLoaders=1&sourceMap',
+          'postcss-loader',
+          'less-loader?sourceMap'
         ]
       },
       {
@@ -108,17 +118,6 @@ const webpackConfig = {
   ]
 }
 
-// postcss config
-const postcssConfig = pack => {
-  return [
-    require('postcss-cssnext')({
-      browsers: 'Chrome >= 40, not ie <= 8'
-    }),
-    require('postcss-browser-reporter')(),
-    require('postcss-reporter')()
-  ]
-}
-
 if (__PROD__) {
   debug('Enable plugins for production (Dedupe & UglifyJS).')
   webpackConfig.plugins.push(
@@ -126,8 +125,7 @@ if (__PROD__) {
       minimize: true,
       options: {
         context: __dirname
-      },
-      postcss: postcssConfig
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -149,8 +147,7 @@ if (__PROD__) {
       debug: true,
       options: {
         context: __dirname
-      },
-      postcss: postcssConfig
+      }
     })
   )
 }
@@ -158,9 +155,25 @@ if (__PROD__) {
 // Don't split bundles during testing, since we only want import one bundle
 if (!__TEST__) {
   webpackConfig.plugins.push(
+    new FaviconsWebpackPlugin({
+      logo: paths.src('static/favicon.png'),
+      prefix: 'icons-[hash:7]/',
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: false,
+        twitter: true,
+        yandex: false,
+        windows: false
+      }
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: 'common.js'
+      filename: __DEV__ ? 'common.js' : 'common.[hash].js'
     })
   )
 }

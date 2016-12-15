@@ -1,5 +1,4 @@
 export default {
-  '/': {
-    component: 'app/home/index'
-  }
+  path: '/',
+  getComponent: () => System.import('app/home')
 }

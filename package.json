@@ -20,7 +20,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "nodemon --exec webpack-dev-server",
+      "command": "nodemon --exec babel-node ./server",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"
@@ -62,6 +62,7 @@
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.9",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-import": "^1.1.0",
     "babel-plugin-istanbul": "^3.0.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
@@ -101,6 +102,12 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-connect-history-api-fallback": "^0.3.1",
+    "koa-convert": "^1.2.0",
+    "koa-static": "^3.0.0",
+    "koa-webpack-middleware": "^1.0.3",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "mocha": "^3.2.0",
@@ -122,7 +129,7 @@
     "stylelint-config-standard": "^15.0.0",
     "url-loader": "^0.5.7",
     "webpack": "2.1.0-beta.27",
-    "webpack-dev-server": "2.1.0-beta.12",
+    "webpack-hot-middleware": "^2.13.2",
     "yargs": "^6.5.0"
   }
 }

@@ -21,15 +21,7 @@ const render = () => {
 }
 
 if (module.hot) {
-  module.hot.accept('app', () => {
-    const NextApp = require('app')
-    ReactDOM.render(
-      <AppContainer>
-        <NextApp store={store} routes={routes} />
-      </AppContainer>,
-      mountNode
-    )
-  })
+  module.hot.accept('app', render)
 }
 
 render()

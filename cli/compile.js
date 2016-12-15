@@ -1,4 +1,5 @@
 import _debug from 'debug'
+import webpack from 'webpack'
 import webpackConfig from '../webpack.config.babel.js'
 
 const debug = _debug('app:compile')
@@ -6,7 +7,7 @@ const debug = _debug('app:compile')
 debug('Create webpack compiler.')
 debug(process.env.NODE_ENV)
 
-require('webpack')(webpackConfig).run((err, stats) => {
+webpack(webpackConfig).run((err, stats) => {
   const jsonStats = stats.toJson()
 
   debug('Webpack compile completed.')

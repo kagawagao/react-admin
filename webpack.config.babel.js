@@ -11,7 +11,11 @@ const { __DEV__, __TEST__, __PROD__ } = globals
 const debug = _debug('app:webpack')
 
 debug('Create configuration.')
-
+const appEntry = __DEV__ ? [
+  'react-hot-loader/patch',
+  'webpack-hot-middleware/client',
+  paths.src('index.js')
+] : [paths.src('index.js')]
 const webpackConfig = {
   target: 'web',
   resolve: {
@@ -20,10 +24,7 @@ const webpackConfig = {
     alias: {}
   },
   entry: {
-    app: [
-      'react-hot-loader/patch',
-      paths.src('index.js')
-    ],
+    app: appEntry,
     vendor: config.compiler_vendor
   },
   output: {
@@ -33,14 +34,14 @@ const webpackConfig = {
     chunkFilename: `[id].[${config.compiler_hash_type}].js`
   },
   devtool: config.compiler_devtool,
-  devServer: {
-    host: config.server_host,
-    port: config.server_port,
-    compress: true,
-    hot: true,
-    noInfo: config.compiler_quiet,
-    stats: config.compiler_stats
-  },
+  // devServer: {
+  //   host: config.server_host,
+  //   port: config.server_port,
+  //   compress: true,
+  //   hot: true,
+  //   noInfo: config.compiler_quiet,
+  //   stats: config.compiler_stats
+  // },
   node: {
     fs: 'empty',
     net: 'empty'
@@ -138,9 +139,7 @@ if (__PROD__) {
         warnings: false
       },
       sourceMap: true
-    }),
-    // extract css into its own file
-    new ExtractTextPlugin('[name].[contenthash].css')
+    })
   )
 } else {
   debug('Enable plugins for live development (HMR, NoErrors).')
@@ -178,6 +177,28 @@ if (!__TEST__) {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: __DEV__ ? 'common.js' : 'common.[hash].js'
+    })
+  )
+}
+
+if (!__DEV__) {
+  debug('Applying ExtractTextPlugin to CSS loaders.')
+  webpackConfig.module.rules.filter((rule) =>
+    rule.loaders && rule.loaders.find((name) => /css/.test(name.split('?')[0]))
+  ).forEach((rule) => {
+    const first = rule.loaders[0]
+    const rest = rule.loaders.slice(1)
+    rule.loader = ExtractTextPlugin.extract({
+      fallbackLoader: first,
+      loader: rest.join('!')
+    })
+    delete rule.loaders
+  })
+
+  webpackConfig.plugins.push(
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash].css',
+      allChunks : true
     })
   )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import { Button } from 'antd'
 
 const Home = () => {
   return (
-    <h2>Home Page 2</h2>
+    <div>
+      <Button>Home</Button>
+    </div>
   )
 }
 export default Home

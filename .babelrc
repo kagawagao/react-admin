@@ -2,37 +2,52 @@
   "env": {
     "development": {
       "presets": [
-        "latest",
+        ["latest", {
+          "modules": false
+        }],
         "stage-0",
         "react"
       ],
       "plugins": [
         "transform-runtime",
         "add-module-exports",
-        "react-hot-loader/babel"
+        "react-hot-loader/babel", ["import", {
+          "libraryName": "antd",
+          "style": true,
+        }]
       ]
     },
     "test": {
       "presets": [
-        "latest",
+        ["latest", {
+          "modules": false
+        }],
         "stage-0",
         "react"
       ],
       "plugins": [
         "transform-runtime",
         "add-module-exports",
-        "istanbul"
+        "istanbul", ["import", {
+          "libraryName": "antd",
+          "style": true,
+        }]
       ]
     },
     "production": {
       "presets": [
-        "latest",
+        ["latest", {
+          "modules": false
+        }],
         "stage-0",
         "react"
       ],
       "plugins": [
         "transform-runtime",
-        "add-module-exports"
+        "add-module-exports", ["import", {
+          "libraryName": "antd",
+          "style": true,
+        }]
       ]
     }
   }

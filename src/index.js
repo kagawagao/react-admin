@@ -1,11 +1,35 @@
-/* @flow */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app/index'
-import 'antd/dist/antd.less'
-import './styles/index.less'
+import { AppContainer } from 'react-hot-loader'
+import createStore from 'store'
+import routes from 'routes'
+import App from 'app'
+import 'styles/index.less'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-)
+// initial store
+const store = createStore({})
+
+const mountNode = document.getElementById('app')
+
+const render = () => {
+  ReactDOM.render(
+    <AppContainer>
+      <App store={store} routes={routes} />
+    </AppContainer>,
+    mountNode
+  )
+}
+
+if (module.hot) {
+  module.hot.accept('app', () => {
+    const NextApp = require('app')
+    ReactDOM.render(
+      <AppContainer>
+        <NextApp store={store} routes={routes} />
+      </AppContainer>,
+      mountNode
+    )
+  })
+}
+
+render()

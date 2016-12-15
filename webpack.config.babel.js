@@ -20,7 +20,10 @@ const webpackConfig = {
     alias: {}
   },
   entry: {
-    app: [paths.src('index.js')],
+    app: [
+      'react-hot-loader/patch',
+      paths.src('index.js')
+    ],
     vendor: config.compiler_vendor
   },
   output: {
@@ -67,7 +70,7 @@ const webpackConfig = {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?importLoaders=1&sourceMap',
+          'css-loader?importLoaders=1&sourceMap-minimize',
           'postcss-loader'
         ]
       },
@@ -75,7 +78,7 @@ const webpackConfig = {
         test: /\.less$/,
         loaders: [
           'style-loader',
-          'css-loader?importLoaders=1&sourceMap',
+          'css-loader?importLoaders=1&sourceMap-minimize',
           'postcss-loader',
           'less-loader?sourceMap'
         ]
@@ -99,6 +102,7 @@ const webpackConfig = {
   },
   plugins: [
     new webpack.DefinePlugin(config.globals),
+    new webpack.NamedModulesPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: paths.src('index.ejs'),

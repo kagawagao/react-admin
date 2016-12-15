@@ -13,7 +13,10 @@
     "lint": "eslint --max-warnings 10 .",
     "lint:fix": "npm run lint -- --fix",
     "lint:flow": "flow check",
-    "lint:css": "stylelint ."
+    "lint:css": "stylelint .",
+    "clean": "better-npm-run clean",
+    "compile": "better-npm-run compile",
+    "build": "npm run clean && npm run compile"
   },
   "betterScripts": {
     "dev": {
@@ -27,6 +30,19 @@
       "command": "babel-node ./node_modules/karma/bin/karma start karma.config",
       "env": {
         "NODE_ENV": "test",
+        "DEBUG": "app:*"
+      }
+    },
+    "clean": {
+      "command": "babel-node ./cli/clean",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    },
+    "compile": {
+      "command": "babel-node ./cli/compile",
+      "env": {
+        "NODE_ENV": "production",
         "DEBUG": "app:*"
       }
     }
@@ -57,6 +73,7 @@
     "chai-enzyme": "^0.6.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
+    "cssnano": "^3.9.1",
     "debug": "^2.3.3",
     "enzyme": "^2.6.0",
     "eslint": "^3.12.1",

@@ -10,13 +10,12 @@ const devMiddleware = (compiler, opts) => {
   const middleware = webpackDevMiddleware(compiler, opts)
   return async (ctx, next) => {
     const req = ctx.request
-    const res = {
-      end: content => {
-        ctx.body = content
-      },
-      setHeader: (...args) => {
-        ctx.set.apply(ctx, args)
-      }
+    const res = {}
+    res.end = content => {
+      ctx.body = content
+    }
+    res.setHeader = (name, value) => {
+      ctx.set(name, value)
     }
     await middleware(req, res, next)
   }

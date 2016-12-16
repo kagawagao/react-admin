@@ -5,7 +5,9 @@ const App = ({ pathname, ...args }) => {
   console.log(pathname)
   console.log(args)
   return (
-    <div>App</div>
+    <div>
+      <h1>App</h1>
+    </div>
   )
 }
 

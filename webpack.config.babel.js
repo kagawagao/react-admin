@@ -71,7 +71,7 @@ const webpackConfig = {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?importLoaders=1&sourceMap-minimize',
+          'css-loader?importLoaders=1&sourceMap&-minimize',
           'postcss-loader'
         ]
       },
@@ -79,7 +79,7 @@ const webpackConfig = {
         test: /\.less$/,
         loaders: [
           'style-loader',
-          'css-loader?importLoaders=1&sourceMap-minimize',
+          'css-loader?importLoaders=1&sourceMap&-minimize',
           'postcss-loader',
           'less-loader?sourceMap'
         ]

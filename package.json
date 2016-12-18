@@ -72,6 +72,7 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "chai-enzyme": "^0.6.1",
+    "cheerio": "^0.22.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "cssnano": "^3.9.1",

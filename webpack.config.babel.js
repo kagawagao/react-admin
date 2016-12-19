@@ -34,14 +34,14 @@ const webpackConfig = {
     chunkFilename: `[id].[${config.compiler_hash_type}].js`
   },
   devtool: config.compiler_devtool,
-  // devServer: {
-  //   host: config.server_host,
-  //   port: config.server_port,
-  //   compress: true,
-  //   hot: true,
-  //   noInfo: config.compiler_quiet,
-  //   stats: config.compiler_stats
-  // },
+  devServer: {
+    host: config.server_host,
+    port: config.server_port,
+    compress: true,
+    hot: true,
+    noInfo: config.compiler_quiet,
+    stats: config.compiler_stats
+  },
   node: {
     fs: 'empty',
     net: 'empty'

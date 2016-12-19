@@ -9,7 +9,7 @@ const debug = _debug('app:server')
 const devMiddleware = (compiler, opts) => {
   const middleware = webpackDevMiddleware(compiler, opts)
   return async (ctx, next) => {
-    const req = ctx.request
+    const req = ctx.req
     const res = {}
     res.end = content => {
       ctx.body = content

@@ -1,18 +1,19 @@
-import React, { PropTypes } from 'react'
-// import { Match } from 'react-router'
+import React from 'react'
+import { HashRouter as Router, Match } from 'react-router'
+import routes from './routes'
 
-const App = ({ pathname, ...args }) => {
-  console.log(pathname)
-  console.log(args)
+const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <Router>
+      <div className="app">
+        {routes.map((route, index) => {
+          return (
+            <Match {...route} key={index} />
+          )
+        })}
+      </div>
+    </Router>
   )
-}
-
-App.propTypes = {
-  pathname: PropTypes.string
 }
 
 export default App

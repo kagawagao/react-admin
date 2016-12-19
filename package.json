@@ -7,7 +7,7 @@
   "author": "kagawagao <kingsongao1221@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "better-npm-run dev",
+    "dev": "nodemon --exec better-npm-run dev",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
     "lint": "eslint --max-warnings 10 .",
@@ -20,7 +20,7 @@
   },
   "betterScripts": {
     "dev": {
-      "command": "nodemon --exec babel-node ./server",
+      "command": "babel-node ./server",
       "env": {
         "NODE_ENV": "development",
         "DEBUG": "app:*"

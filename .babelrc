@@ -2,7 +2,7 @@
   "env": {
     "development": {
       "presets": [
-        ["latest"],
+        "latest",
         "stage-0",
         "react"
       ],

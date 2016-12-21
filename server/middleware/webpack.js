@@ -1,4 +1,3 @@
-// import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware'
 import _debug from 'debug'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
@@ -9,15 +8,23 @@ const debug = _debug('app:server')
 const devMiddleware = (compiler, opts) => {
   const middleware = webpackDevMiddleware(compiler, opts)
   return async (ctx, next) => {
-    const req = ctx.req
-    const res = {}
-    res.end = content => {
-      ctx.body = content
+    const goNext = await new Promise((resolve, reject) => {
+      const req = ctx.req
+      const res = {}
+      res.end = content => {
+        ctx.body = content
+        resolve(false)
+      }
+      res.setHeader = (name, value) => {
+        ctx.set(name, value)
+      }
+      middleware(req, res, () => {
+        resolve(true)
+      })
+    })
+    if (goNext) {
+      await next()
     }
-    res.setHeader = (name, value) => {
-      ctx.set(name, value)
-    }
-    await middleware(req, res, next)
   }
 }
 

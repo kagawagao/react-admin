@@ -1,10 +1,11 @@
 import React from 'react'
-import { Button } from 'antd'
+// import Header from './header'
 
 const Home = () => {
   return (
-    <div>
-      <Button>Button</Button>
+    <div className="home">
+      {/* <Header /> */}
+      <h1>Home</h1>
     </div>
   )
 }

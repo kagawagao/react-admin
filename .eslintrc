@@ -24,7 +24,7 @@
   "rules": {
     "key-spacing"               : 0,
     "jsx-quotes"                : [2, "prefer-double"],
-    "max-len"                   : [2, 120, 2],
+    "max-len"                   : [2, 180, 2],
     "object-curly-spacing"      : [2, "always"],
     "camelcase"                 : 0,
     "flowtype-errors/show-errors": 2

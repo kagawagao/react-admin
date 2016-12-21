@@ -1,6 +1,6 @@
 export default [{
   pattern: '/',
-  component: require('./home'),
+  getComponent: () => System.import('./home'),
   exactly: true,
   meta: {
     auth: false,
@@ -10,8 +10,7 @@ export default [{
   }
 }, {
   pattern: '/error',
-  component: require('./error'),
-  exactly: true,
+  getComponent: () => System.import('./error'),
   meta: {
     auth: false,
     title: '错误',

@@ -1,5 +1,6 @@
 import React from 'react'
-import { HashRouter as Router, Match } from 'react-router'
+import { HashRouter as Router } from 'react-router'
+import MatchAsync from 'components/match-async'
 import routes from './routes'
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
       <div className="app">
         {routes.map((route, index) => {
           return (
-            <Match {...route} key={index} />
+            <MatchAsync {...route} key={index} />
           )
         })}
       </div>

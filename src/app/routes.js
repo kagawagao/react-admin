@@ -9,6 +9,16 @@ export default [{
     level: ''
   }
 }, {
+  pattern: '/count',
+  getComponent: () => System.import('./count'),
+  exactly: true,
+  meta: {
+    auth: false,
+    title: '实例',
+    name: 'count',
+    level: ''
+  }
+}, {
   pattern: '/error',
   getComponent: () => System.import('./error'),
   meta: {

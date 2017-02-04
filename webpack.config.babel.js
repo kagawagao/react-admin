@@ -145,7 +145,7 @@ if (__PROD__) {
   debug('Enable plugins for live development (HMR, NoErrors).')
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true,
       options: {
@@ -176,7 +176,7 @@ if (!__TEST__) {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: __DEV__ ? 'common.js' : 'common.[hash].js'
+      filename: __DEV__ ? 'vendor.js' : 'vendor.[hash].js'
     })
   )
 }

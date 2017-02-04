@@ -8,6 +8,7 @@
       ],
       "plugins": [
         "transform-runtime",
+        "transform-decorators-legacy",
         "add-module-exports", ["import", {
           "libraryName": "antd",
           "style": true,
@@ -22,6 +23,7 @@
       ],
       "plugins": [
         "transform-runtime",
+        "transform-decorators-legacy",
         "add-module-exports",
         "istanbul", ["import", {
           "libraryName": "antd",
@@ -37,6 +39,7 @@
       ],
       "plugins": [
         "transform-runtime",
+        "transform-decorators-legacy",
         "add-module-exports", ["import", {
           "libraryName": "antd",
           "style": true,

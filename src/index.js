@@ -1,13 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import createStore from 'store'
+import store from 'store'
 import { Provider } from 'react-redux'
 // import App from './app'
 import 'styles/index.less'
-
-// initial store
-const store = createStore({})
 
 const mountNode = document.getElementById('app')
 

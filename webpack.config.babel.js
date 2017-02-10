@@ -40,7 +40,8 @@ const webpackConfig = {
     compress: true,
     hot: true,
     noInfo: config.compiler_quiet,
-    stats: config.compiler_stats
+    stats: config.compiler_stats,
+    historyApiFallback: true
   },
   node: {
     fs: 'empty',

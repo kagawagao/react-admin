@@ -1,5 +1,6 @@
 import React from 'react'
-import { HashRouter as Router } from 'react-router'
+import { BrowserRouter as Router } from 'react-router'
+// import { HashRouter as Router } from 'react-router'
 import MatchAsync from 'components/match-async'
 import routes from './routes'
 

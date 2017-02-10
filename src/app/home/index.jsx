@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router'
-// import Header from './header'
+import 'styles/app/home/index.less'
 
 const Home = () => {
   return (
     <div className="home">
       {/* <Header /> */}
       <h1>Home</h1>
-      <Link to="/count">count</Link>
-      <Link to="/error/403">403</Link>
-      <Link to="/error/404">404</Link>
+      <ul>
+        <li><Link to="/count">count</Link></li>
+        <li><Link to="/error/403">403</Link></li>
+        <li><Link to="/error/404">404</Link></li>
+      </ul>
     </div>
   )
 }

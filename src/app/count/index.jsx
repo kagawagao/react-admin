@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import store from 'store'
 import { injectReducer } from 'store/reducers'
 import reducer, { actions } from './reducer'
+import 'styles/app/counter/index.less'
 
 // inject reducer async
 injectReducer(store, { key: 'count', reducer })
@@ -18,8 +19,7 @@ export default class Counter extends React.Component {
   static propTypes = {
     count: PropTypes.number.isRequired,
     plus: PropTypes.func,
-    minus: PropTypes.func,
-    doubleAsync: PropTypes.func
+    minus: PropTypes.func
   }
 
   @autobind
@@ -34,10 +34,12 @@ export default class Counter extends React.Component {
 
   render () {
     return (
-      <div>
-        <div>Count: {this.props.count}</div>
-        <button onClick={this.plus}>+</button>
-        <button onClick={this.minus}>-</button>
+      <div className="counter">
+        <div className="counter-count">Count: {this.props.count}</div>
+        <div className="counter-button-group">
+          <button className="counter-button" onClick={this.plus}>+</button>
+          <button className="counter-button" onClick={this.minus}>-</button>
+        </div>
       </div>
     )
   }

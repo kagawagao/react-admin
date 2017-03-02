@@ -1,13 +1,10 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Router } from 'react-router'
-import createHashHistory from 'history/createHashHistory'
 // import createBrowserHistory from 'history/createBrowserHistory'
 import RouteAsync from 'components/route-async'
 import routes from './routes'
 
-const history = createHashHistory()
-
-const App = () => {
+const App = ({ history }) => {
   return (
     <Router history={history} key="router">
       <div className="app">
@@ -19,6 +16,12 @@ const App = () => {
       </div>
     </Router>
   )
+}
+
+if (__DEV__) {
+  App.propTypes = {
+    history: PropTypes.object.isRequired
+  }
 }
 
 export default App

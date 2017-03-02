@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import store from 'store'
+import store, { history } from 'store'
 import { Provider } from 'react-redux'
 // import App from './app'
 import 'styles/index.less'
@@ -13,7 +13,7 @@ const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <App />
+        <App history={history} />
       </Provider>
     </AppContainer>,
     mountNode

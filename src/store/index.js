@@ -1,9 +1,12 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import promise from 'redux-promise'
-// import { hashHistory as history } from 'react-router'
-// import { browserHistory as history } from 'react-router'
+import createHistory from 'history/createHashHistory'
+
+// import createHistory from 'history/createHashHistory'
 import makeRootReducer from './reducers'
-// import { updateLocation } from './location'
+import { updateLocation } from './location'
+
+export const history = createHistory()
 
 // middlewares
 const middlewares = [promise]
@@ -36,7 +39,7 @@ const store = createStore(
 store.asyncReducers = {}
 
 // To unsubscribe, invoke `store.unsubscribeHistory()` anytime
-// store.unsubscribeHistory = history.listen(updateLocation(store))
+store.unsubscribeHistory = history.listen(updateLocation(store))
 
 if (module.hot) {
   module.hot.accept('./reducers', () => {

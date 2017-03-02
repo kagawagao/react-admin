@@ -1,6 +1,6 @@
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import App from 'app/index'
+import Home from 'app/home'
 
 function shallowRender (component) {
   const renderer = TestUtils.createRenderer()
@@ -10,21 +10,17 @@ function shallowRender (component) {
 }
 
 function shallowRenderWithProps (props = {}) {
-  return shallowRender(<App {...props} />)
+  return shallowRender(<Home {...props} />)
 }
 
-describe('(App) App', function () {
+describe('(App) Error', function () {
   let component
 
   beforeEach(function () {
     component = shallowRenderWithProps({})
   })
 
-  it('Should render Router.', function () {
-    expect(component.key).to.equal('router')
-  })
-
-  it('Should have props: history.', function () {
-    expect(component.props).to.have.property('history')
+  it('Should render as a <div>.', function () {
+    expect(component.type).to.equal('div')
   })
 })

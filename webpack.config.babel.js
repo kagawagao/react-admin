@@ -190,8 +190,8 @@ if (!__DEV__) {
     const first = rule.loaders[0]
     const rest = rule.loaders.slice(1)
     rule.loader = ExtractTextPlugin.extract({
-      fallbackLoader: first,
-      loader: rest.join('!')
+      fallback: first,
+      use: rest.join('!')
     })
     delete rule.loaders
   })

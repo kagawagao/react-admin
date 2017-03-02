@@ -29,7 +29,7 @@ There are a lot of things to do
   - `Karma`
   - `Mocha`
 - Transformers
-  - `PostCss`
+  - `PostCSS`
   - `Babel`
 
 ## Requirements

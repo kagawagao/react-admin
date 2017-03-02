@@ -6299,6 +6299,13 @@ react-responsive-mixin@^0.4.0:
     enquire.js "^2.1.1"
     json2mq "^0.2.0"
 
+react-router-dom@^4.0.0-beta.6:
+  version "4.0.0-beta.6"
+  resolved "http://172.24.133.106:7001/react-router-dom/download/react-router-dom-4.0.0-beta.6.tgz#bdbd8f2fea3def52970735778db03b24cc082a02"
+  dependencies:
+    history "^4.5.1"
+    react-router "^4.0.0-beta.6"
+
 react-router@^4.0.0-beta.6:
   version "4.0.0-beta.6"
   resolved "http://172.24.133.106:7001/react-router/download/react-router-4.0.0-beta.6.tgz#561ac0bf1929960813bf201319ff85d821d5547b"

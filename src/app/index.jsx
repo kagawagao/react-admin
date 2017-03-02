@@ -9,7 +9,7 @@ const history = createHashHistory()
 
 const App = () => {
   return (
-    <Router history={history}>
+    <Router history={history} key="router">
       <div className="app">
         {routes.map((route, index) => {
           return (

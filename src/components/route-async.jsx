@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
-import { Match } from 'react-router'
+import { Route } from 'react-router'
 
-export default class MatchAsync extends React.Component {
+export default class RouteAsync extends React.Component {
   static propTypes = {
-    getComponent: PropTypes.func,
-    pathname: PropTypes.string,
-    pattern: PropTypes.string.isRequired
+    getComponent: PropTypes.func.isRequired,
+    computedMatch: PropTypes.object,
+    match: PropTypes.object,
+    path: PropTypes.string.isRequired
   }
 
   constructor (props) {
@@ -31,13 +32,13 @@ export default class MatchAsync extends React.Component {
   }
 
   render () {
-    const { pathname } = this.props
+    const { computedMatch, match } = this.props
+    const { url } = computedMatch || match || {}
     const { component } = this.state
-
-    const pattern = pathname ? pathname + this.props.pattern : this.props.pattern
+    const path = url ? url + this.props.path : this.props.path
 
     return (
-      <Match {...this.props} pattern={pattern} render={(props) => {
+      <Route {...this.props} path={path} render={(props) => {
         if (component === undefined) {
           this.getComponent()
         }

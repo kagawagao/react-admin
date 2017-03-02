@@ -1,7 +1,9 @@
 export default [{
-  pattern: '/403',
+  path: '/403',
+  exact: true,
   getComponent: () => System.import('./403')
 }, {
-  pattern: '/404',
+  path: '/404',
+  exact: true,
   getComponent: () => System.import('./404')
 }]

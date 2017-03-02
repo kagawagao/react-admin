@@ -1,7 +1,7 @@
 export default [{
-  pattern: '/',
+  path: '/',
   getComponent: () => System.import('./home'),
-  exactly: true,
+  exact: true,
   meta: {
     auth: false,
     title: '首页',
@@ -9,9 +9,9 @@ export default [{
     level: ''
   }
 }, {
-  pattern: '/count',
+  path: '/count',
   getComponent: () => System.import('./count'),
-  exactly: true,
+  exact: true,
   meta: {
     auth: false,
     title: '实例',
@@ -19,7 +19,7 @@ export default [{
     level: ''
   }
 }, {
-  pattern: '/error',
+  path: '/error',
   getComponent: () => System.import('./error'),
   meta: {
     auth: false,

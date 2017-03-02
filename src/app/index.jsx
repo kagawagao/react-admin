@@ -1,16 +1,19 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router'
-// import { HashRouter as Router } from 'react-router'
-import MatchAsync from 'components/match-async'
+import { Router } from 'react-router'
+import createHashHistory from 'history/createHashHistory'
+// import createBrowserHistory from 'history/createBrowserHistory'
+import RouteAsync from 'components/route-async'
 import routes from './routes'
+
+const history = createHashHistory()
 
 const App = () => {
   return (
-    <Router>
+    <Router history={history}>
       <div className="app">
         {routes.map((route, index) => {
           return (
-            <MatchAsync {...route} key={index} />
+            <RouteAsync {...route} key={index} />
           )
         })}
       </div>

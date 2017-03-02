@@ -1,18 +1,18 @@
 import React, { PropTypes } from 'react'
-import MatchAsync from 'components/match-async'
+import RouteAsync from 'components/route-async'
 import routes from './routes'
 
-const Error = ({ pathname }) => {
+const Error = ({ match }) => {
   return (
     <div>
-      {routes.map((route, index) => <MatchAsync {...route} pathname={pathname} key={index} />)}
+      {routes.map((route, index) => <RouteAsync {...route} match={match} key={index} />)}
     </div>
   )
 }
 
 if (__DEV__) {
   Error.propTypes = {
-    pathname: PropTypes.string.isRequired
+    match: PropTypes.object.isRequired
   }
 }
 export default Error

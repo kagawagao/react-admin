@@ -1,0 +1,51 @@
+@import "../node_modules/normalize.css/normalize.css";
+
+*,
+::before,
+::after, {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: var(--textColor);
+  background-color: var(--bgColor);
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--primaryColor);
+  text-decoration: none;
+
+  &:hover {
+    color: color(var(--primaryColor) lightness(+10%));
+  }
+}
+
+button {
+  cursor: pointer;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+input,
+textarea {
+  color: inherit;
+  outline: none;
+  outline-offset: 0;
+  border-width: 1px;
+
+  &::placeholder {
+    color: var(--placeholderColor);
+  }
+}

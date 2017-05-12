@@ -1,14 +1,63 @@
-// @import "~antd/dist/antd.less";
-// @import "./theme/default.less";
-@import "app/index.less";
-
-html,
 body {
-  height: 100%;
+  padding: 20px;
 }
 
-#app,
-.app {
-  height: 100%;
-  width: 100%;
+.columns {
+  & .cols {
+    background-color: #38adff;
+    margin-top: 20px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    &:nth-child(2n) {
+      background-color: tint(#38adff, 20%);
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  & li {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #38adff;
+    border-radius: 4px;
+    margin: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+
+    &:focus {
+      box-shadow: 0 0 0 2px tint(#38adff, 20%);
+    }
+
+    & .nd-icon {
+      transition: all 0.3s ease;
+      font-size: 36px;
+    }
+
+    &:hover {
+      background-color: #38adff;
+
+      & .nd-icon {
+        color: #fff;
+      }
+    }
+  }
 }

@@ -1,0 +1,117 @@
+:root {
+  --overflow: {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.nd-btn {
+  outline: none;
+  height: var(--baseHeight);
+  cursor: pointer;
+  background-color: var(--bgColor);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--radiusBase);
+  padding: var(--basePadding);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--primaryColor);
+    color: var(--primaryColor);
+  }
+
+  &:active {
+    background-color: color(var(--primaryColor) a(80%));
+    border-color: color(var(--primaryColor) a(80%));
+    color: #fff;
+  }
+
+  &-primary {
+    background-color: var(--primaryColor);
+    border-color: var(--primaryColor);
+    color: #fff;
+
+    &:hover {
+      background-color: color(var(--primaryColor) lightness(+15%));
+      border-color: color(var(--primaryColor) lightness(+15%));
+      color: #fff;
+    }
+
+    &:active {
+      background-color: var(--primaryColor);
+      border-color: var(--primaryColor);
+      color: #fff;
+    }
+  }
+
+  &-large {
+    height: calc(var(--baseHeight) * 1.2);
+  }
+
+  &-small {
+    height: calc(var(--baseHeight) * 0.8);
+    font-size: calc(var(--fontSize) - 2);
+    padding: 2px 12px;
+  }
+
+  &-circle {
+    @apply --overflow;
+
+    border-radius: 50%;
+    width: var(--baseHeight);
+    padding: 4px;
+  }
+
+  &-circle&-large {
+    width: calc(var(--baseHeight) * 1.2);
+    height: calc(var(--baseHeight) * 1.2);
+  }
+
+  &-danger {
+    background-color: var(--dangerColor);
+    border-color: var(--dangerColor);
+    color: #fff;
+
+    &:hover {
+      background-color: color(var(--dangerColor) lightness(+15%));
+      border-color: color(var(--dangerColor) lightness(+15%));
+      color: #fff;
+    }
+
+    &:active {
+      background-color: var(--dangerColor);
+      border-color: var(--dangerColor);
+      color: #fff;
+    }
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    border-color: var(--borderColor);
+    color: var(--disabledColor);
+    background-color: var(--disabledBgColor);
+  }
+
+  &-group {
+    display: flex;
+
+    & .nd-btn {
+      border-radius: 0;
+
+      &:first-child {
+        border-top-left-radius: var(--radiusBase);
+        border-bottom-left-radius: var(--radiusBase);
+      }
+
+      &:last-child {
+        border-top-right-radius: var(--radiusBase);
+        border-bottom-right-radius: var(--radiusBase);
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 export default [{
   path: '/',
-  getComponent: () => System.import('./home'),
+  getComponent: () => import('./home'),
   exact: true,
   meta: {
     auth: false,
@@ -10,7 +10,7 @@ export default [{
   }
 }, {
   path: '/count',
-  getComponent: () => System.import('./count'),
+  getComponent: () => import('./count'),
   exact: true,
   meta: {
     auth: false,
@@ -19,8 +19,18 @@ export default [{
     level: ''
   }
 }, {
+  path: '/todo',
+  getComponent: () => import('./todo'),
+  exact: true,
+  meta: {
+    auth: false,
+    title: '实例',
+    name: 'todo',
+    level: ''
+  }
+}, {
   path: '/error',
-  getComponent: () => System.import('./error'),
+  getComponent: () => import('./error'),
   meta: {
     auth: false,
     title: '错误',

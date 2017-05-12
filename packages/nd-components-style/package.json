@@ -1,0 +1,33 @@
+{
+  "name": "nd-components-style",
+  "version": "1.0.0",
+  "description": "Style-Kit for nd-components - built on PostCSS",
+  "main": "index.js",
+  "author": "<kagawagao kingsongao1221@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "cssnano": "^3.10.0",
+    "glob": "^7.1.1",
+    "nodemon": "^1.11.0",
+    "postcss": "^5.2.16",
+    "postcss-apply": "^0.6.1",
+    "postcss-at-rules-variables": "^0.0.27",
+    "postcss-cssnext": "^2.10.0",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^9.1.0",
+    "postcss-reporter": "^3.0.0",
+    "postcss-url": "^5.1.2",
+    "stylelint": "^7.9.0"
+  },
+  "scripts": {
+    "lint": "stylelint .",
+    "prebuild": "npm run lint",
+    "build": "babel-node ./build.js",
+    "dev": "nodemon --exec babel-node ./build.js",
+    "prepublish": "npm run build"
+  }
+}

@@ -1,17 +1,15 @@
-const cssnano = require('cssnano')
-
-module.exports = cssnano({
-  autoprefixer: {
-    add: true,
-    remove: true,
-    browsers: ['last 2 versions']
-  },
-  discardComments: {
-    removeAll: true
-  },
-  discardUnused: false,
-  mergeIdents: false,
-  reduceIdents: false,
-  safe: true,
-  sourcemap: true
-})
+module.exports = {
+  plugins: [
+    require('postcss-import')({
+      plugins: [
+        require('stylelint')({
+          configFile: './.stylelintrc'
+        })
+      ]
+    }),
+    require('postcss-url')(),
+    require('postcss-cssnext')(),
+    require('postcss-browser-reporter')(),
+    require('postcss-reporter')()
+  ]
+}

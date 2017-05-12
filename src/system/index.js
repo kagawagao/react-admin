@@ -7,3 +7,9 @@ export const loadModule = (opts) => {
 export const loadModules = modules => {
   loadModule(module)
 }
+
+export default class App {
+  constructor (options) {
+    console.log(options)
+  }
+}

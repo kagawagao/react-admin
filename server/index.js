@@ -15,9 +15,18 @@ debug('Start server')
 
 const app = new Koa()
 
+// history api fallback
 app.use(convert(historyApiFallback({
   verbose: false
 })))
+
+// X-Response-Time
+app.use(async (ctx, next) => {
+  const start = Date.now()
+  await next()
+  const ms = Date.now() - start
+  ctx.set('X-Response-Time', `${ms}ms`)
+})
 
 // apply middleware
 
@@ -26,6 +35,7 @@ if (config.env === 'development') {
   // app.use(bodyParser())
   webpackMiddleware(app, compiler, config)
   app.use(serve(paths.src('static')))
+  app.use(serve(paths.dist('icons')))
 } else {
   debug(
     'Server is being run outside of live development mode. This starter kit ' +

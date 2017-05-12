@@ -19,7 +19,7 @@ const appEntry = __DEV__ ? [
 const webpackConfig = {
   target: 'web',
   resolve: {
-    modules: [paths.src(), 'node_modules'],
+    modules: [paths.src(), 'packages', 'node_modules'],
     extensions: ['.js', '.jsx', '.css', '.json'],
     alias: {}
   },
@@ -71,18 +71,32 @@ const webpackConfig = {
       {
         test: /\.css$/,
         loaders: [
-          'style-loader',
-          'css-loader?importLoaders=1&sourceMap&-minimize',
+          'style-loader?sourceMap',
+          {
+            'loader': 'css-loader',
+            'options': {
+              'importLoaders': 1,
+              'sourceMap': true,
+              'minimize': false
+            }
+          },
           'postcss-loader'
         ]
       },
       {
         test: /\.less$/,
         loaders: [
-          'style-loader',
-          'css-loader?importLoaders=1&sourceMap&-minimize',
+          'style-loader?sourceMap',
+          {
+            'loader': 'css-loader',
+            'options': {
+              'importLoaders': 1,
+              'sourceMap': true,
+              'minimize': false
+            }
+          },
           'postcss-loader',
-          'less-loader?sourceMap'
+          'less-loader'
         ]
       },
       {

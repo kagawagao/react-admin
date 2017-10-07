@@ -24,7 +24,7 @@ There are a lot of things to do
   - `stylelint`
   - `Flowtype`
 - Package Manage
-  - `Yarn`
+  - `NPM v5`
 - Test
   - `Karma`
   - `Mocha`
@@ -35,8 +35,7 @@ There are a lot of things to do
 ## Requirements
 
 - Node `^6.0.0`
-- NPM `^3.0.0`
-- Yarn `^0.17.0`
+- NPM `^5.0.0`
 
 ## Browser Support
 

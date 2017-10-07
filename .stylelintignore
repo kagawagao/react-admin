@@ -1,2 +1,3 @@
 node_modules/
-packages/
+src/styles/theme/
+src/styles/color/

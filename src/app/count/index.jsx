@@ -1,5 +1,5 @@
-import React, { PropTypes } from 'react'
-import autobind from 'autobind-decorator'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import store from 'store'
@@ -22,13 +22,11 @@ export default class Counter extends React.Component {
     minus: PropTypes.func
   }
 
-  @autobind
-  plus () {
+  plus = () => {
     this.props.plus(1)
   }
 
-  @autobind
-  minus () {
+  minus = () => {
     this.props.minus(1)
   }
 

@@ -14,12 +14,12 @@ debug('Create configuration.')
 const appEntry = __DEV__ ? [
   'react-hot-loader/patch',
   'webpack-hot-middleware/client',
-  paths.src('index.js')
-] : [paths.src('index.js')]
+  paths.src('index.jsx')
+] : [paths.src('index.jsx')]
 const webpackConfig = {
   target: 'web',
   resolve: {
-    modules: [paths.src(), 'packages', 'node_modules'],
+    modules: [paths.src(), 'node_modules'],
     extensions: ['.js', '.jsx', '.css', '.json'],
     alias: {}
   },
@@ -70,34 +70,57 @@ const webpackConfig = {
       },
       {
         test: /\.css$/,
-        loaders: [
-          'style-loader?sourceMap',
+        use: __DEV__ ? [
+          'style-loader',
           {
-            'loader': 'css-loader',
-            'options': {
-              'importLoaders': 1,
+            loader: 'css-loader',
+            options: {
               'sourceMap': true,
-              'minimize': false
+              'importLoaders': 1
             }
           },
           'postcss-loader'
-        ]
+        ] : ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                'sourceMap': true,
+                'importLoaders': 1
+              }
+            },
+            'postcss-loader'
+          ]
+        })
       },
       {
         test: /\.less$/,
-        loaders: [
-          'style-loader?sourceMap',
+        use: __DEV__ ? [
+          'style-loader',
           {
-            'loader': 'css-loader',
-            'options': {
-              'importLoaders': 1,
+            loader: 'css-loader',
+            options: {
               'sourceMap': true,
-              'minimize': false
+              'importLoaders': 1
             }
           },
           'postcss-loader',
           'less-loader'
-        ]
+        ] : ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                'sourceMap': true,
+                'importLoaders': 1
+              }
+            },
+            'postcss-loader',
+            'less-loader'
+          ]
+        })
       },
       {
         test: /\.(png|jpg|gif)(\?.*)?$/,
@@ -175,7 +198,7 @@ if (!__TEST__) {
   webpackConfig.plugins.push(
     new FaviconsWebpackPlugin({
       logo: paths.src('static/favicon.png'),
-      prefix: 'icons-[hash:7]/',
+      prefix: __DEV__ ? 'icons/' : 'icons-[hash:7]/',
       icons: {
         android: false,
         appleIcon: false,
@@ -198,18 +221,6 @@ if (!__TEST__) {
 
 if (!__DEV__) {
   debug('Applying ExtractTextPlugin to CSS loaders.')
-  webpackConfig.module.rules.filter((rule) =>
-    rule.loaders && rule.loaders.find((name) => /css/.test(name.split('?')[0]))
-  ).forEach((rule) => {
-    const first = rule.loaders[0]
-    const rest = rule.loaders.slice(1)
-    rule.loader = ExtractTextPlugin.extract({
-      fallback: first,
-      use: rest.join('!')
-    })
-    delete rule.loaders
-  })
-
   webpackConfig.plugins.push(
     new ExtractTextPlugin({
       filename: '[name].[contenthash].css',

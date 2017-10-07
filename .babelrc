@@ -2,7 +2,7 @@
   "env": {
     "development": {
       "presets": [
-        "latest",
+        "env",
         "stage-0",
         "react"
       ],
@@ -11,13 +11,13 @@
         "transform-decorators-legacy",
         "add-module-exports", ["import", {
           "libraryName": "antd",
-          "style": true,
+          "style": false
         }]
       ]
     },
     "test": {
       "presets": [
-        "latest",
+        "env",
         "stage-0",
         "react"
       ],
@@ -27,13 +27,13 @@
         "add-module-exports",
         "istanbul", ["import", {
           "libraryName": "antd",
-          "style": true,
+          "style": false
         }]
       ]
     },
     "production": {
       "presets": [
-        "latest",
+        "env",
         "stage-0",
         "react"
       ],
@@ -42,7 +42,7 @@
         "transform-decorators-legacy",
         "add-module-exports", ["import", {
           "libraryName": "antd",
-          "style": true,
+          "style": false
         }]
       ]
     }

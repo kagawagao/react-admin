@@ -1,8 +1,6 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import promise from 'redux-promise'
 import createHistory from 'history/createHashHistory'
-
-// import createHistory from 'history/createHashHistory'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
 

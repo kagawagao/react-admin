@@ -1,8 +1,7 @@
-// @flow
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import autobind from 'autobind-decorator'
 import { actions } from './reducer'
 
 @connect(state => ({
@@ -15,13 +14,11 @@ export default class Todo extends React.Component {
     deleteItem: PropTypes.func
   }
 
-  @autobind
-  addTodo () {
+  addTodo = () => {
     this.props.addItem(`a${Date.now()}`)
   }
 
-  @autobind
-  deleteTodo (e: any) {
+  deleteTodo = (e) => {
     const { id } = e.target.dataset
     this.props.deleteItem(id)
   }

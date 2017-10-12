@@ -1,5 +1,0 @@
-{
-  "verbose": false,
-  "ignore": ["lib", "dist"],
-  "ext": "css js json"
-}

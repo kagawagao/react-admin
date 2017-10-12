@@ -3,7 +3,6 @@
 [include]
 .*/src/.*
 [libs]
-flow
 [options]
 module.file_ext=.js
 module.file_ext=.json

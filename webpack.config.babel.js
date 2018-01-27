@@ -20,7 +20,7 @@ const webpackConfig = {
   target: 'web',
   resolve: {
     modules: [paths.src(), 'node_modules'],
-    extensions: ['.js', '.jsx', '.css', '.json'],
+    extensions: ['.js', '.jsx', '.less', '.css', '.json'],
     alias: {}
   },
   entry: {
@@ -123,17 +123,10 @@ const webpackConfig = {
         })
       },
       {
-        test: /\.(png|jpg|gif)(\?.*)?$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash:7]'
-        }
-      },
-      {
         test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          limit: 8192,
           name: '[name].[ext]?[hash:7]'
         }
       }
@@ -224,7 +217,7 @@ if (!__DEV__) {
   webpackConfig.plugins.push(
     new ExtractTextPlugin({
       filename: '[name].[contenthash].css',
-      allChunks : true
+      allChunks: true
     })
   )
 }

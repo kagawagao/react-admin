@@ -22,11 +22,8 @@
     "__COVERAGE__" : false
   },
   "rules": {
-    "key-spacing"               : 0,
-    "jsx-quotes"                : [2, "prefer-double"],
-    "max-len"                   : [2, 180, 2],
-    "object-curly-spacing"      : [2, "always"],
-    "camelcase"                 : 0,
+    "jsx-quotes"                : ["error", "prefer-double"],
+    "object-curly-spacing"      : ["error", "always"],
     "flowtype-errors/show-errors": 2
   }
 }

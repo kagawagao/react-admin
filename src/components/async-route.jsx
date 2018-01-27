@@ -2,11 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Route } from 'react-router'
 
-export default class RouteAsync extends React.Component {
+export default class AsyncRoute extends React.Component {
   static propTypes = {
     getComponent: PropTypes.func.isRequired,
-    computedMatch: PropTypes.object,
-    match: PropTypes.object,
     path: PropTypes.string.isRequired
   }
 
@@ -26,17 +24,14 @@ export default class RouteAsync extends React.Component {
           })
         })
         .catch(e => {
-          console.error(e)
           throw new Error(e)
         })
     }
   }
 
   render () {
-    const { computedMatch, match } = this.props
-    const { url } = computedMatch || match || {}
     const { component } = this.state
-    const path = url ? url + this.props.path : this.props.path
+    const path = this.props.path
 
     return (
       <Route {...this.props} path={path} render={(props) => {

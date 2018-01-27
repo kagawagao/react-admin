@@ -1,15 +1,14 @@
 import React from 'react'
+import { Switch } from 'react-router'
 import PropTypes from 'prop-types'
-import RouteAsync from 'components/route-async'
+import AsyncRoute from 'components/async-route'
 import routes from './routes'
 
-const Error = ({ match }) => {
-  return (
-    <div>
-      {routes.map((route, index) => <RouteAsync {...route} match={match} key={index} />)}
-    </div>
-  )
-}
+const Error = ({ match }) => (
+  <Switch>
+    {routes.map(route => <AsyncRoute {...route} path={`${match.path}${route.path}`} key={route.path} />)}
+  </Switch>
+)
 
 if (__DEV__) {
   Error.propTypes = {

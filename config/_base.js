@@ -32,11 +32,7 @@ const config = {
   compiler_public_path: '',
   compiler_fail_on_warning: false,
   compiler_quiet: false,
-  compiler_stats: {
-    chunks: false,
-    chunkModules: false,
-    colors: true
-  },
+  compiler_stats: 'errors-only',
   compiler_vendor: [
     'react',
     'redux',

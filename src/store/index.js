@@ -41,8 +41,8 @@ store.unsubscribeHistory = history.listen(updateLocation(store))
 
 if (module.hot) {
   module.hot.accept('./reducers', () => {
-    const reducers = require('./reducers')
-    store.replaceReducer(reducers(store.asyncReducers))
+    const { makeRootReducer } = require('./reducers')
+    store.replaceReducer(makeRootReducer(store.asyncReducers))
   })
 }
 

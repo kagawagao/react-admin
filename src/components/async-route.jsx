@@ -38,7 +38,8 @@ export default class AsyncRoute extends React.Component {
         if (component === undefined) {
           this.getComponent()
         }
-        return component ? React.createElement(component, props) : null
+
+        return component ? React.createElement(component.default, props) : null
       }} />
     )
   }

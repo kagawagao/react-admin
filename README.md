@@ -2,10 +2,6 @@
 
 > A simple admin - based on `React` and `Ant Design`
 
-## Status
-
-- [ ] Work In Progress 🚧
-
 ## Todos
 
 There are a lot of things to do
@@ -40,7 +36,7 @@ There are a lot of things to do
 ## Browser Support
 
 - Chrome `40+`
-- IE `9+`
+- IE `10+`
 
 ## License
 

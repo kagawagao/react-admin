@@ -17,6 +17,7 @@ const appEntry = __DEV__ ? [
   paths.src('index.jsx')
 ] : [paths.src('index.jsx')]
 const webpackConfig = {
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   target: 'web',
   resolve: {
     modules: [paths.src(), 'node_modules'],
@@ -204,10 +205,6 @@ if (!__TEST__) {
         yandex: false,
         windows: false
       }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: __DEV__ ? 'vendor.js' : 'vendor.[hash].js'
     })
   )
 }

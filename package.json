@@ -1,144 +1,69 @@
 {
   "name": "react-admin",
-  "version": "1.0.0-alpha.1",
-  "description": "admin - based on react and ant-design",
-  "main": "index.js",
-  "repository": "git@github.com:kagawagao/react-admin.git",
-  "author": {
-    "name": "kagawagao",
-    "email": "kingsongao1221@gmail.com"
+  "version": "1.0.0",
+  "description": "admin dashboard with react and antd",
+  "author": "kagawa <kingsongao1221@gmail.com>",
+  "homepage": "https://github.com/kagawagao/react-admin#readme",
+  "bugs": {
+    "url": "https://github.com/kagawagao/react-admin/issues"
   },
   "license": "MIT",
-  "scripts": {
-    "dev": "nodemon --exec better-npm-run dev",
-    "test": "better-npm-run test",
-    "test:dev": "npm run test -- --watch",
-    "lint": "eslint --max-warnings 10 .",
-    "lint:fix": "npm run lint -- --fix",
-    "lint:flow": "flow check",
-    "lint:css": "stylelint ./**/*.less",
-    "clean": "better-npm-run clean",
-    "compile": "better-npm-run compile",
-    "build": "npm run clean && npm run compile"
+  "private": true,
+  "publishConfig": {
+    "access": "public"
   },
-  "betterScripts": {
-    "dev": {
-      "command": "babel-node ./server",
-      "env": {
-        "NODE_ENV": "development",
-        "DEBUG": "app:*"
-      }
-    },
-    "test": {
-      "command": "babel-node ./node_modules/karma/bin/karma start karma.config",
-      "env": {
-        "NODE_ENV": "test",
-        "DEBUG": "app:*"
-      }
-    },
-    "clean": {
-      "command": "babel-node ./cli/clean",
-      "env": {
-        "DEBUG": "app:*"
-      }
-    },
-    "compile": {
-      "command": "babel-node ./cli/compile",
-      "env": {
-        "NODE_ENV": "production",
-        "DEBUG": "app:*"
-      }
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kagawagao/react-admin.git"
+  },
+  "scripts": {
+    "dev": "pixas dev",
+    "build": "pixas build",
+    "lint": "eslint . --ext=.js,.ts,.jsx,.tsx  --fix",
+    "prepare": "husky"
   },
   "dependencies": {
-    "history": "^4.6.3",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-redux": "^5.0.7",
-    "react-router": "^4.1.2",
-    "react-router-dom": "^4.1.2",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.3.0",
-    "redux-promise": "^0.5.3"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.20.0",
-    "babel-eslint": "^8.2.2",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-import": "^1.7.0",
-    "babel-plugin-istanbul": "^4.1.6",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.15.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "better-npm-run": "^0.1.0",
-    "chai": "^4.1.0",
-    "chai-as-promised": "^7.1.1",
-    "chai-enzyme": "^1.0.0-beta.0",
-    "cheerio": "^1.0.0-rc.2",
-    "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^0.28.11",
-    "debug": "^3.1.0",
-    "enzyme": "^3.3.0",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-babel": "^5.0.0",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-flowtype-errors": "^3.5.1",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "favicons-webpack-plugin": "0.0.9",
-    "file-loader": "^1.1.11",
-    "flow-bin": "^0.69.0",
-    "html-webpack-plugin": "^3.2.0",
-    "json-loader": "^0.5.4",
-    "karma": "^2.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-es6-shim": "^1.0.0",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.2.5",
-    "karma-phantomjs-launcher": "^1.0.2",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^3.0.0",
-    "koa": "^2.5.0",
-    "koa-bodyparser": "^4.1.0",
-    "koa-connect-history-api-fallback": "^0.3.1",
-    "koa-convert": "^1.2.0",
-    "koa-static": "^4.0.2",
-    "less": "^2.7.3",
-    "less-loader": "^4.1.0",
-    "mocha": "^5.0.5",
-    "nodemon": "^1.17.3",
-    "phantomjs-polyfill": "^0.0.2",
-    "phantomjs-prebuilt": "^2.1.16",
-    "postcss-browser-reporter": "^0.5.0",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^11.1.0",
-    "postcss-loader": "^2.1.3",
-    "postcss-reporter": "^5.0.0",
-    "postcss-url": "^7.3.2",
-    "react-hot-loader": "^4.0.1",
-    "sinon": "^4.5.0",
-    "sinon-chai": "^3.0.0",
-    "style-loader": "^0.20.3",
-    "stylelint": "^9.2.0",
-    "stylelint-config-standard": "^18.2.0",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.5.0",
-    "webpack-dev-middleware": "^3.1.2",
-    "webpack-dev-server": "^3.1.3",
-    "webpack-hot-middleware": "^2.22.0",
-    "yargs": "^11.1.0"
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@pixas/babel-preset-app": "^0.6.0",
+    "@pixas/bundler-webpack": "^0.6.1",
+    "@pixas/cli": "^0.6.2",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "husky": "^9.0.11",
+    "less": "^4.2.0",
+    "lint-staged": "^15.2.5",
+    "typescript": "^5.4.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": "@pixas/prettier-config",
+  "stylelint": {
+    "extends": "@pixas/stylelint-config",
+    "rules": {
+      "font-family-no-missing-generic-family-keyword": null
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }

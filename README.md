@@ -1,43 +1,21 @@
-# React Admin
+# react-admin
 
-> A simple admin - based on `React` and `Ant Design`
+> admin dashboard with react and antd
 
-## Todos
+## Install
 
-There are a lot of things to do
+```bash
+npm i
+```
 
-## Features
+## Develop
 
-- Core
-  - `react`
-  - `redux`
-  - `react-redux`
-  - `react-router`
-- Build
-  - `Webpack`
-- Linters
-  - `ESLint`
-  - `stylelint`
-  - `Flowtype`
-- Package Manage
-  - `NPM v5`
-- Test
-  - `Karma`
-  - `Mocha`
-- Transformers
-  - `PostCSS`
-  - `Babel`
+```bash
+npm run dev
+```
 
-## Requirements
+## Build
 
-- Node `^6.0.0`
-- NPM `^5.0.0`
-
-## Browser Support
-
-- Chrome `40+`
-- IE `10+`
-
-## License
-
-MIT
+```bash
+npm run build
+```

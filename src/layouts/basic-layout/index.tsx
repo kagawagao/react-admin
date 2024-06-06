@@ -1,13 +1,23 @@
+import { useAuth } from '@/hooks/auth';
 import { LayoutProps } from '@/interfaces/layout';
 import routes from '@/routes';
 import history from '@/utils/history';
 import { ProLayout } from '@ant-design/pro-components';
 import { camelCase, upperFirst } from 'lodash';
-import { FC } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { FC, useEffect } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 const BasicLayout: FC<LayoutProps> = () => {
   const location = useLocation();
+  const { isLogin } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate('/login');
+    }
+  }, [isLogin, navigate]);
+
   return (
     <ProLayout
       title={upperFirst(camelCase(process.env.APP_NAME))}

@@ -1,3 +1,4 @@
+import AuthProvider from '@/components/auth-provider';
 import { RouteRecord } from '@/interfaces/route';
 import routes from '@/routes';
 import history from '@/utils/history';
@@ -35,20 +36,22 @@ const App: FC = () => {
 
   useLayoutEffect(() => history.listen(setState), []);
   return (
-    <AntdApp>
-      <ProConfigProvider>
-        <ConfigProvider>
-          <Router
-            basename={process.env.PUBLIC_PATH}
-            navigator={history}
-            location={state.location}
-            navigationType={state.action}
-          >
-            <Routes>{generateRoutes(routes)}</Routes>
-          </Router>
-        </ConfigProvider>
-      </ProConfigProvider>
-    </AntdApp>
+    <ProConfigProvider hashed={false}>
+      <ConfigProvider theme={{ cssVar: true, hashed: false }}>
+        <AntdApp>
+          <AuthProvider>
+            <Router
+              basename={process.env.PUBLIC_PATH}
+              navigator={history}
+              location={state.location}
+              navigationType={state.action}
+            >
+              <Routes>{generateRoutes(routes)}</Routes>
+            </Router>
+          </AuthProvider>
+        </AntdApp>
+      </ConfigProvider>
+    </ProConfigProvider>
   );
 };
 

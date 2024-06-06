@@ -1,4 +1,4 @@
-import { notification } from 'antd';
+import { message } from 'antd';
 import axios, { AxiosHeaders, AxiosInstance, AxiosRequestConfig } from 'axios';
 import history from './history';
 
@@ -41,14 +41,6 @@ const CODE_MESSAGES: Record<string, string> = {
   ECONNABORTED: '请求超时',
 };
 
-const openNotification = (message: string) => {
-  notification.destroy();
-  notification.error({
-    message: '错误提示：',
-    description: message || '系统繁忙，请稍后再试',
-  });
-};
-
 const redirectLogin = () => {
   history.push('/login');
 };
@@ -59,7 +51,7 @@ function logError(msg: string) {
   if (!(lastMessage === msg && lastTime + 1000 > Date.now())) {
     lastMessage = msg;
     lastTime = Date.now();
-    openNotification(msg);
+    message.error(msg);
   }
 }
 
@@ -103,6 +95,9 @@ export default class Service {
         if ((response.headers['content-type'] as string)?.includes('json')) {
           // 这个状态码是和后端约定的
           const { success, code, message: msg } = dataAxios;
+          if (code === 200) {
+            return response;
+          }
           // 兼容非标准响应体
           if (typeof success === 'undefined' && !code && !msg) {
             return response;

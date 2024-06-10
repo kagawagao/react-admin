@@ -41,7 +41,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@pixas/babel-preset-app": "^0.6.0",
-    "@pixas/bundler-webpack": "^0.6.1",
+    "@pixas/bundler-webpack": "^0.7.0",
     "@pixas/cli": "^0.6.4",
     "@types/lodash": "^4.17.4",
     "@types/react": "^18.3.2",

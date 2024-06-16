@@ -2,9 +2,9 @@ import { useAuth } from '@/hooks/auth';
 import { LayoutProps } from '@/interfaces/layout';
 import routes from '@/routes';
 import history from '@/utils/history';
-import { ProLayout } from '@ant-design/pro-components';
+import { ProLayout, ProLayoutProps } from '@ant-design/pro-components';
 import { camelCase, upperFirst } from 'lodash';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useMemo } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 const BasicLayout: FC<LayoutProps> = () => {
@@ -18,12 +18,17 @@ const BasicLayout: FC<LayoutProps> = () => {
     }
   }, [isLogin, navigate]);
 
+  const route = useMemo<Required<ProLayoutProps>['route']>(() => {
+    // TODO: permission filter
+    return routes[0];
+  }, []);
+
   return (
     <ProLayout
       title={upperFirst(camelCase(process.env.APP_NAME))}
       location={location}
       layout="mix"
-      route={routes[0]}
+      route={route}
       menuProps={{
         onClick: ({ key }) => {
           history.push(key);

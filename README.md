@@ -2,20 +2,33 @@
 
 > admin dashboard with react and antd
 
-## Install
+### Features
+
+- based on [`antd`](https://ant.design)
+- `RBAC` permission manage model
+
+## Usage
+
+### Install
 
 ```bash
 npm i
 ```
 
-## Develop
+### Develop
 
 ```bash
 npm run dev
 ```
 
-## Build
+### Build
 
 ```bash
 npm run build
+```
+
+### Permission Extract
+
+```bash
+  npm run permission
 ```

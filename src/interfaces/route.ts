@@ -1,5 +1,8 @@
 import { MenuDataItem } from '@ant-design/pro-components';
 import { ComponentType, ReactNode } from 'react';
+import { UserPermission } from './permission';
+
+export interface RouteMeta extends Record<string, any> {}
 
 export interface RouteRecord extends MenuDataItem {
   path?: string;
@@ -10,5 +13,14 @@ export interface RouteRecord extends MenuDataItem {
    * 子路由
    */
   children?: RouteRecord[];
-  meta?: Record<string, any>;
+  /**
+   * 是否需要登录
+   * @default true
+   */
+  auth?: boolean;
+  /**
+   * 菜单权限
+   */
+  permission?: UserPermission;
+  meta?: RouteMeta;
 }

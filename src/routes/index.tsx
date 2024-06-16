@@ -1,5 +1,6 @@
 import { RouteRecord } from '@/interfaces/route';
-import { UserOutlined } from '@ant-design/icons';
+import menuPermissions from '@/permissions/menu';
+import { DatabaseOutlined, UserOutlined } from '@ant-design/icons';
 import { lazy } from 'react';
 
 const routes: RouteRecord[] = [
@@ -15,9 +16,17 @@ const routes: RouteRecord[] = [
       },
       {
         path: '/users',
-        name: 'Users Manage',
+        name: '用户管理',
         icon: <UserOutlined />,
         Component: lazy(() => import('@/pages/users')),
+        permission: menuPermissions.userManage,
+      },
+      {
+        path: '/permissions',
+        name: '权限管理',
+        icon: <DatabaseOutlined />,
+        Component: lazy(() => import('@/pages/permissions')),
+        permission: menuPermissions.userManage,
       },
     ],
   },

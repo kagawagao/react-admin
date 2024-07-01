@@ -32,7 +32,7 @@
     "history": "^5.3.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "query-string": "^6.14.1",
+    "query-string": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^6.23.1",

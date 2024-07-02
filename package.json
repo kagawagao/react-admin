@@ -42,7 +42,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@pixas/babel-plugin-permission": "^0.10.0",
-    "@pixas/babel-preset-app": "^0.10.0",
+    "@pixas/babel-preset-app": "^0.11.0",
     "@pixas/bundler-mako": "^0.11.0",
     "@pixas/bundler-webpack": "^0.10.0",
     "@pixas/cli": "^0.11.0",

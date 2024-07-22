@@ -45,7 +45,7 @@
     "@pixas/babel-preset-app": "^0.11.0",
     "@pixas/bundler-mako": "^0.12.0",
     "@pixas/bundler-webpack": "^0.12.0",
-    "@pixas/cli": "^0.12.0",
+    "@pixas/cli": "^0.12.2",
     "@types/lodash": "^4.17.5",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",

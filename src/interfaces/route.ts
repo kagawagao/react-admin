@@ -2,6 +2,7 @@ import { MenuDataItem } from '@ant-design/pro-components';
 import { ComponentType, ReactNode } from 'react';
 import { UserPermission } from './permission';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface RouteMeta extends Record<string, any> {}
 
 export interface RouteRecord extends MenuDataItem {

@@ -2,7 +2,7 @@ import { AppConfig } from '@pixas/cli';
 
 const config: AppConfig = {
   name: 'react-admin',
-  bundler: 'mako', // default is 'webpack', you can use mako as well
+  bundler: 'mako', // default is 'webpack', you can use mako or vite as well
   description: 'admin dashboard with react and antd',
   dts: {
     modules: [

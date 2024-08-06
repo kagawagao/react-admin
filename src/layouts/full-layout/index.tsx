@@ -5,7 +5,7 @@ import styles from './index.module.less';
 
 const FullLayout: FC<LayoutProps> = () => {
   return (
-    <div className={styles.fullLayout}>
+    <div className={styles['full-layout']}>
       <Outlet />
     </div>
   );

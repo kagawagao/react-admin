@@ -39,7 +39,7 @@
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@pixas/babel-plugin-permission": "^0.12.0",
     "@pixas/bundler-mako": "^0.12.2",

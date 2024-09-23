@@ -45,7 +45,7 @@
     "@pixas/bundler-mako": "^0.12.2",
     "@pixas/bundler-webpack": "^0.12.2",
     "@pixas/cli": "^0.12.2",
-    "@types/lodash": "^4.17.5",
+    "@types/lodash": "^4.17.9",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "husky": "^9.0.11",

@@ -34,7 +34,7 @@
     "lodash-es": "^4.17.21",
     "query-string": "^6.14.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.1.0",
     "react-router": "^7.4.0",
     "react-router-dom": "^7.2.0"
   },
@@ -47,7 +47,7 @@
     "@pixas/cli": "^0.13.0",
     "@types/lodash": "^4.17.15",
     "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.3",
+    "@types/react-dom": "^19.0.4",
     "husky": "^9.1.7",
     "less": "^4.2.1",
     "lint-staged": "^15.5.0",

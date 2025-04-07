@@ -51,7 +51,7 @@
     "husky": "^9.1.7",
     "less": "^4.2.1",
     "lint-staged": "^15.5.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "browserslist": {
     "production": [

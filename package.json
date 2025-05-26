@@ -47,7 +47,7 @@
     "@pixas/cli": "^0.13.0",
     "@types/lodash": "^4.17.15",
     "@types/react": "^19.1.5",
-    "@types/react-dom": "^19.1.2",
+    "@types/react-dom": "^19.1.5",
     "husky": "^9.1.7",
     "less": "^4.3.0",
     "lint-staged": "^16.0.0",

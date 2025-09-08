@@ -49,7 +49,7 @@
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.7",
     "husky": "^9.1.7",
-    "less": "^4.4.0",
+    "less": "^4.4.1",
     "lint-staged": "^16.1.4",
     "typescript": "^5.9.2"
   },

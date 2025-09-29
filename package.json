@@ -28,7 +28,7 @@
     "@ant-design/icons": "^6.0.0",
     "@ant-design/pro-components": "^2.8.10",
     "antd": "^5.27.3",
-    "axios": "^1.11.0",
+    "axios": "^1.12.2",
     "history": "^5.3.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",

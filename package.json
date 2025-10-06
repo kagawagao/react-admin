@@ -50,7 +50,7 @@
     "@types/react-dom": "^19.1.9",
     "husky": "^9.1.7",
     "less": "^4.4.2",
-    "lint-staged": "^16.1.6",
+    "lint-staged": "^16.2.3",
     "typescript": "^5.9.2"
   },
   "browserslist": {
